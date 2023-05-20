@@ -1,0 +1,348 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@600&family=Roboto:wght@400;700&display=swap');
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+
+:root{
+    --back-color: #ffffff;
+}
+
+.deactivated{
+    display: none !important;
+}
+
+.content-library{
+    margin-top: 30px;
+    background-color: var(--back-color);
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    font-family: inherit;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+    height: 90vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#list{
+    width: 98%;
+    box-shadow: none;
+}
+
+.buttons{
+    margin-bottom: 10px;
+    width: 200px;
+    margin-left: 10px;
+    font-family: inherit;
+    font-weight: bold;
+}
+.buttons:hover{
+    cursor: pointer;
+}
+
+#buttons-container{
+    width: 98%;
+    display: flex;
+    justify-content: end;
+}
+
+.filter-view{
+    display: grid;
+    width: 99%;
+    height: 300px;
+    grid-template-columns: auto auto auto;
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.44);
+    border: 3px solid rgb(0, 136, 255);
+}
+
+.filter-view button{
+    width: 80%;
+}
+
+.form-controller-button{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.form-controller-filter input{
+    width: 95%;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    height: 30px;
+    border: none;
+    outline: none;
+    background-color: #eeeeee;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 5px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.add-book-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 90%;
+    border: 3px solid rgb(0, 136, 255);
+    font-family: inherit;
+}
+
+.startReading-filter-wrapper{
+    display: flex;
+}
+
+.startReading-filter label{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    display: block;
+    margin-bottom: 5px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.form-controller{
+    width: 90%;
+    margin-bottom: 10px;
+}
+
+.form-controller input, .form-controller textarea{
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    background-color: #eeeeee;
+}
+
+.form-controller input{
+    height: 35px;
+}
+
+.form-controller input:focus, .form-controller textarea:focus{
+    outline: none;
+}
+
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+button{
+    width: 80px;
+    height: 35px;
+    background-color: rgb(0, 136, 255);
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    font-family: inherit;
+    margin-top: 10px;
+}
+
+#startReading{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#startReading input{
+    width: 20px;
+    background-color: #eeeeee;
+}
+
+.table-view{
+    width: 98%;
+    height: 56%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.44);
+    overflow-y: auto;
+    border: 3px solid rgb(0, 136, 255);
+    border-radius: 15px;
+}
+
+table{
+    width: 100%;
+    text-align: center;
+    background-color: white;
+    border-collapse: collapse;
+    font-family: 'Roboto', sans-serif;
+}
+
+th{
+    padding-top: 10px;
+    padding-bottom: 8px;
+    background-color: rgb(0, 136, 255);
+    font-family: 'Roboto', sans-serif;
+}
+
+th:first-child{
+    border-top-left-radius: 5px;
+}
+th:last-child{
+    border-top-right-radius: 5px;
+}
+
+td{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid #ccc;
+}
+
+.overlay{
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.405);
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+
+.modal{
+    position: fixed;
+    width: 80%;
+    height: 700px;
+    background-color: white;
+    z-index: 2;
+    border-radius: 10px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.804);
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 30px;
+    flex-direction: column;
+    transform: translateY(-5%);
+    overflow-y: auto;
+}
+
+.book_detail_content{
+    margin-top: 30px;
+    width: 100%;
+}
+
+.book_detail_content .form-controller{
+    width: 100%;
+}
+
+.book_detail_content .startReading-filter{
+    width: 50%;
+}
+
+.form-controller-book-detail{
+    width: 100%;
+}
+
+.form-controller-book-detail input, .form-controller-book-detail textarea{
+    width: 100%;
+    height: 30px;
+    border: none;
+    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 5px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.form-controller-book-detail textarea{
+    height: 100px;
+}
+
+.book_detail_btn{
+    width: 60px;
+    height: 40px;
+    background-color: rgb(0, 136, 255);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    margin: 0;
+    margin-right: 5px;
+}
+
+.detail-buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#sair{
+    background-color: red;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#editar{
+    cursor: pointer;
+}
+
+#delete{
+    background-color: red;
+}
+
+.startReading-filter select{
+    width: 80%;
+    height: 40px;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: #eeeeee;
+    position: relative;
+    top: -3px;
+    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+#add-modal{
+    position: fixed;
+    z-index: 1;
+    height: 700px;
+    border: none;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.419);
+    transform: translateY(-5%);
+    overflow-y: auto;
+}
+
+#close-add-form{
+    width: 60px;
+    height: 40px;
+    background-color: red;
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.add-book-wrapper .startReading-filter{
+    width: 90%;
+}
+
+.add-book-wrapper .startReading-filter select{
+    width: 50%;
+    padding: 5px;
+    border: none;
+    outline: none;
+}
+
+.btn{
+    font-size: 18px;
+}

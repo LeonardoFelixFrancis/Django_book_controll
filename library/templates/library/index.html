@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_styles %}
+    <link rel="stylesheet" href="{% static 'library/style.css' %}">
+{% endblock  %}
+
+{% block title %}
+    Books Read Controll
+{% endblock  %}
+
+{% block navigation %}
+    {% include "includes/nav.html" %}
+{% endblock %}
+
+{% block content %}
+
+    {% if book %}
+        <div class="overlay"></div>
+        <form class="modal" method="POST" action="{% url 'edit-book' book_id %}">
+            {% csrf_token %}
+            <h2>Book Detail</h2>
+            <div class="book_detail_content">
+                {% for field in book %}
+                    {% if field.label != 'Started Reading' %}
+                    <div class="form-controller">
+                        {{field.errors}}
+                        <label for="">{{field.label}}</label>
+                        {{field}}
+                    </div>
+                    {% else %}
+
+                        <div class="startReading-filter">
+                            {{field.errors}}
+                            <label for="">{{field.label}}:</label>
+                            {{field}}
+                        </div>
+
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="detail-buttons">
+                <a href="{% url 'library-entry' %}" class="book_detail_btn" id="sair"><i class="fa-solid fa-xmark"></i></a>
+                <button class="book_detail_btn" id="editar"><i class="fa-regular fa-pen-to-square"></i></button>
+                <a href="{% url 'delete-book' book_id%}" class="book_detail_btn" id="delete"><i class="fa-sharp fa-solid fa-trash"></i></a>
+            </div>
+        </form>
+    {% endif %}
+    <div class="wrapper">
+
+        <div class="content-library" id="list">
+            
+            <form class="filter-view" action="{% url 'form-filter' %}" method="POST" id="filter-form">
+                {% csrf_token %}
+                {% for field in filter_form %}
+                    {% if field.label != 'Started Reading' %}
+                    <div class="filter form-controller-filter">
+                        {{field.errors}}
+                        <label for="">{{field.label}}</label>
+                        {{field}}
+                    </div>
+                    {% else %}
+
+                        <div class="filter startReading-filter">
+                            {{field.errors}}
+                            <label for="">{{field.label}}:</label>
+                            {{field}}
+                        </div>
+
+                    {% endif %}
+                {% endfor %}
+
+            </form>
+            
+            <div id="buttons-container">
+                <button class="buttons" id="adicionar-livro">Add Book</button>
+                <button class="buttons" id="filter-books">Filter</button>
+                <button class="buttons" id="clear-filter-books">Clear Filter</button>
+            </div>
+
+            <div class="table-view">
+                <table>
+                    <thead>
+                        <th>Name</th>
+                        <th>Rating</th>
+                        <th>Date Stated</th>
+                        <th>Date End</th>
+                        <th>Started Reading</th>
+                        <th>Open</th>
+                    </thead>
+                    <tbody>
+                        {% for book in books %}
+                            <tr>
+                                <td>{{book.book_name}}</td>
+                                <td>{{book.rating}}</td>
+                                <td>{{book.start_date}}</td>
+                                <td>{{book.end_date}}</td>
+                                <td>{{book.start_reading}}</td>
+                                <td><a href="{% url 'open-book' book.id %}">open</a></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <div class="overlay deactivated" id="add-overlay"></div>
+        <form action="{% url 'library-entry' %}" class="content-library add-book-wrapper deactivated" method="POST" id="add-modal">
+            <button class="btn" id="close-add-form"><i class="fa-solid fa-xmark"></i></button>
+            <h2>Add a New Book</h2>
+            {% csrf_token %}
+
+            {% for field in form %}
+                {% if field.label != 'Started Reading' %}
+                    <div class="form-controller">
+                        {{field.errors}}
+                        <label for="">{{field.label}}</label>
+                        {{field}}
+                    </div>
+                {% else %}
+                    <div class="startReading-filter">
+                            {{field.errors}}
+                            <label for="">{{field.label}}:</label>
+                            {{field}}
+                    </div>
+                {% endif %}
+            {% endfor %}
+            <button class="btn">Add</button>
+        </form>
+    </div>
+    
+
+{% endblock  %}
+
+{% block scripts %}
+    <script src="{% static 'library/script.js' %}"></script>
+{% endblock %}

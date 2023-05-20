@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Register
+{% endblock  %}
+
+{% block css_styles %}
+    <link rel="stylesheet" href="{% static 'user/style.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    
+
+    <form action="{% url 'login' %}" method="POST" class="form-wrapper">
+        {% if message %}
+        <div class="alert_success">
+           <p>{{message}}</p>
+        </div>
+         {% endif %}
+        {% csrf_token %}
+        <h2>Login</h2>
+        {% for field in form %}
+            <div class="form-controller">
+                {{field.errors}}
+                <label for="">{{field.label}}</label>
+                {{field}}
+            </div>
+        {% endfor %}
+
+        <button>Login</button>
+        <br>
+        <a href="{% url 'register' %}" id="register">Click here for registering an account</a>
+
+    </form>
+
+{% endblock content %}
